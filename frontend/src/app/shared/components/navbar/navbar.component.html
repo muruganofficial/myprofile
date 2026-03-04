@@ -1,0 +1,31 @@
+<nav class="navbar" [class.scrolled]="isScrolled">
+    <div class="container navbar-content">
+        <a href="#" class="brand">
+            <div class="name">Murugan <span>Amirthalingam</span></div>
+            <div class="position">Senior Developer</div>
+        </a>
+
+        <div class="nav-links" [class.active]="isMenuOpen">
+            <a href="#home" (click)="closeMenu()">Home</a>
+            <a href="#about" (click)="closeMenu()">About</a>
+            <a href="#portfolio" (click)="closeMenu()">Portfolio</a>
+            <a href="#contact" (click)="closeMenu()">Contact</a>
+            <a href="assets/resume/MyResume.pdf" class="nav-resume" download>Resume</a>
+
+            <!-- <button class="theme-toggle" (click)="toggleTheme()">
+                <span *ngIf="isDark$ | async">☀️</span>
+                <span *ngIf="!(isDark$ | async)">🌙</span>
+            </button> -->
+
+            <!-- <div class="color-picker">
+                <span class="color-dot emerald" (click)="setPrimary('emerald')"></span>
+                <span class="color-dot violet" (click)="setPrimary('violet')"></span>
+                <span class="color-dot blue" (click)="setPrimary('blue')"></span>
+            </div> -->
+        </div>
+
+        <button class="menu-btn" (click)="toggleMenu()">
+            <span>&#9776;</span>
+        </button>
+    </div>
+</nav>

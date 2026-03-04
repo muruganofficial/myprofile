@@ -1,0 +1,33 @@
+@use 'sass:map';
+@use 'variables' as *;
+
+// Breakpoints
+$breakpoints: (
+    'sm': 576px,
+    'md': 768px,
+    'lg': 992px,
+    'xl': 1200px
+);
+
+@mixin respond-to($breakpoint) {
+    $value: map.get($breakpoints, $breakpoint);
+
+    @if $value !=null {
+        @media (min-width: $value) {
+            @content;
+        }
+    }
+}
+
+@mixin flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin glassmorphism {
+    background: var(--glass-bg, $glass-bg);
+    backdrop-filter: var(--glass-blur, $glass-blur);
+    -webkit-backdrop-filter: var(--glass-blur, $glass-blur);
+    border: 1px solid var(--glass-border, $glass-border);
+}

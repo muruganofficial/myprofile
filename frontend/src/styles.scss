@@ -1,0 +1,97 @@
+@use 'styles/animations';
+@use 'styles/themes';
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary, 'Inter', sans-serif);
+    background-color: var(--bg-color);
+    color: var(--text-primary);
+    min-height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s ease, color 0.3s ease;
+    overflow-x: hidden;
+    line-height: 1.6;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: var(--font-secondary, 'Outfit', sans-serif);
+    margin-bottom: 1rem;
+    color: var(--text-primary);
+    line-height: 1.2;
+}
+
+a {
+    text-decoration: none;
+    color: var(--primary-color);
+    transition: color 0.3s ease;
+
+    &:hover {
+        color: var(--primary-color-hover);
+    }
+}
+
+p {
+    margin-bottom: 1rem;
+    color: var(--text-secondary);
+}
+
+// Global button styles
+.btn {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    font-family: var(--font-secondary, 'Outfit', sans-serif);
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease;
+    text-align: center;
+
+    &-primary {
+        background-color: var(--primary-color);
+        color: #ffffff;
+
+        &:hover {
+            background-color: var(--primary-color-hover);
+            color: #ffffff;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px color-mix(in srgb, var(--primary-color), transparent 70%);
+        }
+    }
+
+    &-outline {
+        background: transparent;
+        border: 2px solid var(--primary-color);
+        color: var(--primary-color);
+
+        &:hover {
+            background-color: var(--primary-color);
+            color: #ffffff;
+        }
+    }
+}
+
+// Utility classes
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+}
+
+section {
+    padding: 5rem 0;
+}
+
+.text-center {
+    text-align: center;
+}

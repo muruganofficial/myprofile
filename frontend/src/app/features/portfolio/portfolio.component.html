@@ -1,0 +1,31 @@
+<section id="portfolio" class="portfolio-section">
+    <div class="container">
+        <div class="section-header reveal active">
+            <div class="line"></div>
+            <h2>Some Things I've Built</h2>
+        </div>
+
+        <div class="projects-grid">
+            <div class="project-card reveal active" *ngFor="let project of projects">
+                <div class="project-content">
+                    <p class="project-overline">Featured Project</p>
+                    <h3 class="project-title">{{ project.title }}</h3>
+                    <div class="project-description">
+                        <p>{{ project.description }}</p>
+                    </div>
+                    <ul class="project-tech-list">
+                        <li *ngFor="let tech of project.technologies">{{ tech }}</li>
+                    </ul>
+                    <div class="project-links">
+                        <a *ngIf="project.githubUrl" [href]="project.githubUrl" target="_blank">💻 Github</a>
+                        <a *ngIf="project.liveUrl" [href]="project.liveUrl" target="_blank">🔗 Live</a>
+                    </div>
+                </div>
+                <!-- The image gets covered by styling to merge beautifully with theme -->
+                <div class="project-image-wrapper">
+                    <div class="project-image" [style.backgroundImage]="'url(' + project.imageUrl + ')'"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

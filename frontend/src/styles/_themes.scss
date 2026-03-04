@@ -1,0 +1,45 @@
+:root {
+    // Light Theme Defaults
+    --primary-color: #3b82f6; // Blue
+    --primary-color-hover: #2563eb;
+
+    --bg-color: #f8fafc;
+    --surface-color: #ffffff;
+
+    --text-primary: #0f172a;
+    --text-secondary: #475569;
+
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.5);
+    --glass-blur: blur(12px);
+
+    --border-color: #e2e8f0;
+}
+
+[data-theme="dark"] {
+    --primary-color: #60a5fa; // Lighter Blue
+    --primary-color-hover: #3b82f6;
+
+    --bg-color: #0f172a;
+    --surface-color: #1e293b;
+
+    --text-primary: #f8fafc;
+    --text-secondary: #cbd5e1;
+
+    --glass-bg: rgba(30, 41, 59, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.1);
+    --glass-blur: blur(12px);
+
+    --border-color: #334155;
+}
+
+// Support for dynamic primary color changes
+[data-primary="emerald"] {
+    --primary-color: #10b981;
+    --primary-color-hover: #059669;
+}
+
+[data-primary="violet"] {
+    --primary-color: #8b5cf6;
+    --primary-color-hover: #7c3aed;
+}

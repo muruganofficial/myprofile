@@ -1,0 +1,111 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.about-section {
+    background-color: var(--surface-color);
+}
+
+.section-header {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-bottom: 3rem;
+
+    h2 {
+        font-size: 2rem;
+        margin: 0;
+    }
+
+    .line {
+        height: 1px;
+        background: var(--border-color);
+        flex-grow: 1;
+        max-width: 300px;
+    }
+}
+
+.about-content {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 3rem;
+
+    @include respond-to('md') {
+        grid-template-columns: 3fr 2fr;
+    }
+}
+
+.text {
+    p {
+        margin-bottom: 1.5rem;
+        font-size: 1.1rem;
+    }
+}
+
+.skills-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(140px, 200px));
+    gap: 1rem;
+    list-style: none;
+    padding: 0;
+    margin-top: 2rem;
+
+    li {
+        position: relative;
+        padding-left: 1.5rem;
+        color: var(--text-primary);
+
+        &::before {
+            content: '▹';
+            position: absolute;
+            left: 0;
+            color: var(--primary-color);
+        }
+    }
+}
+
+.about-cta {
+    margin-top: 3rem;
+}
+
+.image-wrapper {
+    @include flex-center;
+
+    .picture-frame {
+        width: 300px;
+        aspect-ratio: 1;
+        border-radius: $border-radius-md;
+        position: relative;
+
+        &::after {
+            content: '';
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            right: -15px;
+            bottom: -15px;
+            border: 2px solid var(--primary-color);
+            border-radius: inherit;
+            z-index: -1;
+            transition: all $transition-normal;
+        }
+
+        &:hover::after {
+            transform: translate(-10px, -10px);
+        }
+    }
+
+    .placeholder-img {
+        width: 100%;
+        height: 100%;
+        background: var(--bg-color);
+        border-radius: inherit;
+        overflow: hidden;
+
+        img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top center;
+        }
+    }
+}

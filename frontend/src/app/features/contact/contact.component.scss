@@ -1,0 +1,89 @@
+@use '../../../styles/variables' as *;
+@use '../../../styles/mixins' as *;
+
+.contact-section {
+    background-color: var(--surface-color);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.overline {
+    color: var(--primary-color);
+    font-family: var(--font-secondary);
+    font-weight: 500;
+    margin-bottom: 1rem;
+}
+
+.title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    color: var(--text-primary);
+    margin-bottom: 1.5rem;
+}
+
+.description {
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+}
+
+.contact-form {
+    @include glassmorphism;
+    padding: 2.5rem;
+    border-radius: $border-radius-lg;
+    text-align: left;
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    input,
+    textarea {
+        width: 100%;
+        padding: 1rem;
+        background: var(--bg-color);
+        border: 1px solid var(--border-color);
+        border-radius: $border-radius-sm;
+        color: var(--text-primary);
+        font-family: inherit;
+        font-size: 1rem;
+        transition: all $transition-fast;
+
+        &:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            box-shadow: 0 0 0 3px rgba(var(--primary-color), 0.2);
+        }
+
+        &::placeholder {
+            color: var(--text-secondary);
+        }
+    }
+
+    button {
+        width: 100%;
+        margin-top: 1rem;
+
+        &:disabled {
+            opacity: 0.7;
+            cursor: not-allowed;
+        }
+    }
+}
+
+.status-msg {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    border-radius: $border-radius-sm;
+    text-align: center;
+
+    &.success {
+        background: rgba(16, 185, 129, 0.1);
+        color: #10b981;
+        border: 1px solid rgba(16, 185, 129, 0.2);
+    }
+
+    &.error {
+        background: rgba(239, 68, 68, 0.1);
+        color: #ef4444;
+        border: 1px solid rgba(239, 68, 68, 0.2);
+    }
+}
