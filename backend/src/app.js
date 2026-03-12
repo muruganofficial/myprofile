@@ -18,6 +18,17 @@ app.use(cors({
 app.use(express.json());
 app.use(morgan('dev'));
 
+app.get('/api/status', (req, res) => {
+    const mongoose = require('mongoose');
+    res.json({
+        success: true,
+        message: 'Backend is running',
+        dbStatus: mongoose.connection.readyState === 1 ? 'Connected' : 'Disconnected',
+        dbName: mongoose.connection.name,
+        timestamp: new Date()
+    });
+});
+
 app.use('/api/projects', projectRoutes);
 app.use('/api/messages', messageRoutes);
 app.use('/api/auth', authRoutes);
