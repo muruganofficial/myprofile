@@ -105,7 +105,7 @@ cd ../frontend
 npm install
 npm start
 ```
-- Navigate to `http://localhost:4200/`
+- Navigate to `https://myprofile-six-ivory.vercel.app`
 
 ---
 
