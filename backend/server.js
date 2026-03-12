@@ -4,29 +4,18 @@ const connectDB = require('./src/config/db');
 
 const PORT = process.env.PORT || 5000;
 
-const allowedOrigins = [
-  'http://localhost:4200',
-  'https://myprofile-six-ivory.vercel.app'
-];
 
-app.use(cors({
-  origin: function (origin, callback) {
-    // Allow requests with no origin (like mobile apps or curl)
-    if (!origin) return callback(null, true);
-    
-    if (allowedOrigins.indexOf(origin) === -1) {
-      const msg = 'The CORS policy for this site does not allow access from the specified Origin.';
-      return callback(new Error(msg), false);
-    }
-    return callback(null, true);
-  }
-}));
+// 1. Initiate Database connection immediately
+// For Vercel, it's better to call this inside your app.js or here without the .then() block
+connectDB();
 
-connectDB().then(() => {
+// 2. Only start the listener if NOT on Vercel
+if (process.env.NODE_ENV !== 'production') {
+    const PORT = process.env.PORT || 5000;
     app.listen(PORT, () => {
-        console.log(`Server is running on port ${PORT}`);
+        console.log(`Local server running on port ${PORT}`);
     });
-}).catch(err => {
-    console.error("Failed to connect to MongoDB", err);
-    process.exit(1);
-});
+}
+
+// 3. CRITICAL: Export the app for Vercel's serverless handler
+module.exports = app;
