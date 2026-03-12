@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { HttpClientModule, HttpClient } from '@angular/common/http';
 import { environment } from '../../../environments/environment';
 import Swal from 'sweetalert2';
@@ -24,7 +24,7 @@ export class ContactComponent {
 
   constructor(private http: HttpClient) { }
 
-  onSubmit() {
+  onSubmit(form: NgForm) {
     this.isLoading = true;
 
     this.http.post(`${environment.apiUrl}/messages`, this.model).subscribe({
@@ -39,6 +39,7 @@ export class ContactComponent {
             background: 'var(--surface-color)',
             color: 'var(--text-primary)'
           });
+          form.resetForm();
           this.model = { name: '', email: '', subject: '', message: '' };
         }
       },

@@ -8,7 +8,7 @@
                 7871975184</strong>.
         </p>
 
-        <form class="contact-form" (ngSubmit)="onSubmit()" #contactForm="ngForm">
+        <form class="contact-form" (ngSubmit)="onSubmit(contactForm)" #contactForm="ngForm">
             <div class="form-group">
                 <input type="text" id="name" name="name" [(ngModel)]="model.name" required placeholder="Name">
             </div>
