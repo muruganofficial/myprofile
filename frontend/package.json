@@ -17,9 +17,6 @@
     "@angular/forms": "^21.2.0",
     "@angular/platform-browser": "^21.2.0",
     "@angular/router": "^21.2.0",
-    "rxjs": "~7.8.0",
-    "sweetalert2": "^11.26.20",
-    "tslib": "^2.3.0",
     "bcryptjs": "^3.0.3",
     "cors": "^2.8.5",
     "dotenv": "^16.6.1",
@@ -27,7 +24,11 @@
     "helmet": "^7.1.0",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^8.3.4",
-    "morgan": "^1.10.0"
+    "morgan": "^1.10.0",
+    "nodemailer": "^8.0.2",
+    "rxjs": "~7.8.0",
+    "sweetalert2": "^11.26.20",
+    "tslib": "^2.3.0"
   },
   "devDependencies": {
     "@angular/build": "^21.2.0",
